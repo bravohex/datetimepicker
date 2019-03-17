@@ -41,6 +41,8 @@
                     day: 'numeric',
                     month: 'short',
                     weekday: 'short',
+                    hour: '2-digit',
+                    minute: '2-digit'
                 })
             },
         },
