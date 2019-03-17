@@ -1,10 +1,6 @@
 <template>
     <p class="trvl-picker-summary">
         {{ format(checkin) }} - {{ format(checkout) }}
-
-        <span class="trvl-picker-summary-nights">
-            {{ nights }} {{ nights === 1 ? 'night' : 'nights' }}
-        </span>
         <span class="trvl-picker-summary-duration">
           {{ duration.days > 0 ? (duration.days + (duration.days === 1 ? ' day' : ' days') ) : ''}}
           {{ duration.days > 0 && duration.hours > 0 ? ', ' : '' }}
