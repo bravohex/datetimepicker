@@ -132,6 +132,9 @@
     const oneYearFromNow = new Date(today)
     oneYearFromNow.setYear(today.getFullYear() + 1)
 
+    const oneMonthFromNow = new Date(today)
+    oneMonthFromNow.setMonth(today.getMonth() + 1)
+
     export default {
         name: 'TRVLPicker',
         components: {
@@ -171,7 +174,7 @@
             maxDate: {
                 required: false,
                 type: Date,
-                default: () => new Date(oneYearFromNow),
+                default: () => new Date(oneMonthFromNow),
             },
             maxStay: {
                 required: false,
