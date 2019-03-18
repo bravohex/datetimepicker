@@ -92,6 +92,9 @@
                             @select="dateSelected"
                         />
                     </div>
+                    <div class="mp-picker-time">
+                        <Time />
+                    </div>
 
                     <footer class="trvl-picker-footer">
                         <Summary
@@ -124,6 +127,7 @@
         NavigationButton,
         Summary,
         Week,
+        Time,
     } from './components'
 
     const today = new Date()
@@ -146,6 +150,7 @@
             Portal,
             Summary,
             Week,
+            Time,
         },
         props: {
             breakpointSingle: {
