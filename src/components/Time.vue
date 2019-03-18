@@ -7,26 +7,44 @@
     </div>
 </template>
 
-
+<script src='./timeOptions.js'></script>
 <script>
     import BFormSelect from 'bootstrap-vue/es/components/form-select/form-select'
+    import { defaultTimeOptions } from './timeOptions'
 
     export default {
         name: 'Time',
         components: {
             BFormSelect,
         },
+        props: {
+            checkin: {
+                required: true,
+                type: Date,
+            },
+            checkout: {
+                required: true,
+                type: Date,
+            },
+        },
         data() {
             return {
-                selected: null,
-                options: [
-                    { value: null, text: 'Please select an option' },
-                    { value: 'a', text: 'This is First option' },
-                    { value: 'b', text: 'Selected Option' },
-                    { value: { C: '3PO' }, text: 'This is an option with object value' },
-                    { value: 'd', text: 'This one is disabled', disabled: true },
-                ],
+                defaultOptions: defaultTimeOptions,
             }
+        },
+        computed: {
+            checkinOptions() {
+                return []
+            },
+            checkinSelected() {
+                return 0
+            },
+            checkoutOptions() {
+                return []
+            },
+            checkoutSelected() {
+                return 0
+            },
         },
     }
 </script>

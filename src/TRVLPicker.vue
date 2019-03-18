@@ -93,7 +93,10 @@
                         />
                     </div>
                     <div class="mp-picker-time">
-                        <Time />
+                        <Time
+                            :checkin="checkin"
+                            :checkout="checkout"
+                        />
                     </div>
 
                     <footer class="trvl-picker-footer">
