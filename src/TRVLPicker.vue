@@ -280,7 +280,11 @@
             },
 
             format(date) {
-                return date.toLocaleDateString()
+                // return date.toLocaleDateString()
+                return date.toLocaleDateString('en-us', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                })
             },
 
             goToNextMonth() {
@@ -494,7 +498,7 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
-                margin-top: 16px;
+                margin-top: 18px;
 
                 .double &,
                 .triple & {

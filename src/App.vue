@@ -91,7 +91,7 @@
 
         &-input {
             padding: 0;
-            width: 120px;
+            width: 140px;
             border: none;
             font-size: 15px;
 
