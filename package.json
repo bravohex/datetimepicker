@@ -10,6 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "bootstrap-vue": "^2.0.0-rc.14",
     "portal-vue": "^1.5.1"
   },
   "devDependencies": {
