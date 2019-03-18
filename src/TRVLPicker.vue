@@ -92,6 +92,12 @@
                             @select="dateSelected"
                         />
                     </div>
+                    <div class="mp-picker-time">
+                        <Time
+                            :checkin="checkin"
+                            :checkout="checkout"
+                        />
+                    </div>
 
                     <footer class="trvl-picker-footer">
                         <Summary
@@ -124,6 +130,7 @@
         NavigationButton,
         Summary,
         Week,
+        Time,
     } from './components'
 
     const today = new Date()
@@ -131,6 +138,9 @@
 
     const oneYearFromNow = new Date(today)
     oneYearFromNow.setYear(today.getFullYear() + 1)
+
+    const oneMonthFromNow = new Date(today)
+    oneMonthFromNow.setMonth(today.getMonth() + 1)
 
     export default {
         name: 'TRVLPicker',
@@ -143,6 +153,7 @@
             Portal,
             Summary,
             Week,
+            Time,
         },
         props: {
             breakpointSingle: {
@@ -171,7 +182,7 @@
             maxDate: {
                 required: false,
                 type: Date,
-                default: () => new Date(oneYearFromNow),
+                default: () => new Date(oneMonthFromNow),
             },
             maxStay: {
                 required: false,
@@ -272,7 +283,11 @@
             },
 
             format(date) {
-                return date.toLocaleDateString()
+                // return date.toLocaleDateString()
+                return date.toLocaleDateString('en-us', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                })
             },
 
             goToNextMonth() {
@@ -486,7 +501,7 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
-                margin-top: 16px;
+                margin-top: 18px;
 
                 .double &,
                 .triple & {
