@@ -92,6 +92,12 @@
                             @select="dateSelected"
                         />
                     </div>
+                    <div class="mp-picker-time">
+                        <Time
+                            :checkin="checkin"
+                            :checkout="checkout"
+                        />
+                    </div>
 
                     <footer class="trvl-picker-footer">
                         <Summary
@@ -124,6 +130,7 @@
         NavigationButton,
         Summary,
         Week,
+        Time,
     } from './components'
 
     const today = new Date()
@@ -146,6 +153,7 @@
             Portal,
             Summary,
             Week,
+            Time,
         },
         props: {
             breakpointSingle: {
@@ -275,7 +283,11 @@
             },
 
             format(date) {
-                return date.toLocaleDateString()
+                // return date.toLocaleDateString()
+                return date.toLocaleDateString('en-us', {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                })
             },
 
             goToNextMonth() {
@@ -489,7 +501,7 @@
                 display: flex;
                 justify-content: space-between;
                 width: 100%;
-                margin-top: 16px;
+                margin-top: 18px;
 
                 .double &,
                 .triple & {
