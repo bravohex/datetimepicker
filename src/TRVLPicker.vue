@@ -94,8 +94,11 @@
                     </div>
                     <div class="mp-picker-time">
                         <Time
-                            :checkin="checkin"
-                            :checkout="checkout"
+                            :checkin="selectedCheckin || checkin"
+                            :checkout="selectedCheckout || checkout"
+                            :picker="picker"
+                            @updateCheckin="updateCheckinByTimeIndex"
+                            @updateCheckout="updateCheckoutByTimeIndex"
                         />
                     </div>
 
@@ -284,6 +287,31 @@
                 this.$emit('close')
 
                 this.picker = null
+            },
+
+            indexToHours(index) {
+                return Math.floor(index / 4)
+            },
+
+            indexToMinutes(index) {
+                return (index % 4) * 15
+            },
+
+            updateCheckinByTimeIndex(index) {
+                console.log('index: ' + index)
+                let hr = this.indexToHours(index)
+                let min = this.indexToMinutes(index)
+                console.log('hr: ' + hr)
+                console.log('min ' + min)
+                let currentDate = this.selectedCheckin || this.checkin
+                currentDate.setHours(hr, min)
+                this.dateSelected(currentDate)
+            },
+
+            updateCheckoutByTimeIndex(index) {
+                console.log('update checkout by index')
+                console.log('index: ' + index)
+                this.selectedCheckout = new Date(10,2)
             },
 
             dateSelected(date) {

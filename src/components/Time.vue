@@ -3,10 +3,12 @@
         <b-form-select
             v-model="checkinIndex"
             :options="checkinOptions"
+            @change="$emit('updateCheckin', checkinIndex)"
         />
         <b-form-select
             v-model="checkoutIndex"
             :options="checkoutOptions"
+            @change="$emit('updateCheckout', checkoutIndex)"
         />
     </div>
 </template>
@@ -30,6 +32,10 @@
                 required: true,
                 type: Date,
             },
+            picker: {
+                required: true,
+                type: String,
+            }
         },
         data() {
             return {
@@ -49,7 +55,7 @@
         methods: {
           hoursToIndex(hours){
             return (hours * 4)
-          }
+          },
         },
         mounted() {
           // update default checkinIndex and checkoutIndex based on checkin and checkout
