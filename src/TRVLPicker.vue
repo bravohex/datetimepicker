@@ -97,8 +97,8 @@
                             :checkin="selectedCheckin || checkin"
                             :checkout="selectedCheckout || checkout"
                             :picker="picker"
-                            @updateCheckin="updateCheckinByTimeIndex"
-                            @updateCheckout="updateCheckoutByTimeIndex"
+                            @updateCheckin="dateSelected"
+                            @updateCheckout="dateSelected"
                         />
                     </div>
 
@@ -308,7 +308,7 @@
             updateCheckoutByTimeIndex(index) {
                 const hr = this.indexToHours(index)
                 const min = this.indexToMinutes(index)
-                const currentDate = this.selectedCheckin || this.checkin
+                const currentDate = this.selectedCheckout || this.checkout
                 currentDate.setHours(hr, min)
                 this.dateSelected(currentDate)
             },

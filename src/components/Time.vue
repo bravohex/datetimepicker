@@ -10,7 +10,7 @@
                     :disabled="picker === 'checkout'"
                     v-model="checkinIndex"
                     :options="checkinOptions"
-                    @change="$emit('updateCheckin', checkinIndex)"
+                    @change="$emit('updateCheckin', newCheckin)"
                 />
             </b-form-group>
         </div>
@@ -24,7 +24,7 @@
                     :disabled="picker === 'checkin'"
                     v-model="checkoutIndex"
                     :options="checkoutOptions"
-                    @change="$emit('updateCheckout', checkoutIndex)"
+                    @change="$emit('updateCheckout', newCheckout)"
                 />
             </b-form-group>
 
@@ -66,6 +66,14 @@
             }
         },
         computed: {
+            newCheckin() {
+                return new Date(this.checkin.setHours(this.indexToHours(this.checkinIndex),
+                    this.indexToMinutes(this.checkinIndex)))
+            },
+            newCheckout() {
+                return new Date(this.checkout.setHours(this.indexToHours(this.checkoutIndex),
+                    this.indexToMinutes(this.checkoutIndex)))
+            },
             checkinOptions() {
                 return this.defaultOptions
             },
@@ -74,6 +82,14 @@
             },
         },
         methods: {
+          indexToHours(index) {
+              return Math.floor(index / 4)
+          },
+
+          indexToMinutes(index) {
+              return (index % 4) * 15
+          },
+
           hoursToIndex(hours){
             return (hours * 4)
           },
