@@ -290,8 +290,16 @@
             },
 
             dateSelected(date) {
-                if (this.picker === 'checkin') this.selectedCheckin = date
-                else if (this.picker === 'checkout') this.selectedCheckout = date
+                if (this.picker === 'checkin') {
+                    console.log('updating checkin')
+                    console.log(date)
+                    this.selectedCheckin = date
+                }
+                else if (this.picker === 'checkout') {
+                    console.log('updating checkout')
+                    console.log(date)
+                    this.selectedCheckout = date
+                }
 
                 const checkout = this.selectedCheckout || this.checkout
 
