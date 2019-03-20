@@ -289,30 +289,6 @@
                 this.picker = null
             },
 
-            indexToHours(index) {
-                return Math.floor(index / 4)
-            },
-
-            indexToMinutes(index) {
-                return (index % 4) * 15
-            },
-
-            updateCheckinByTimeIndex(index) {
-                const hr = this.indexToHours(index)
-                const min = this.indexToMinutes(index)
-                const currentDate = this.selectedCheckin || this.checkin
-                currentDate.setHours(hr, min)
-                this.dateSelected(currentDate)
-            },
-
-            updateCheckoutByTimeIndex(index) {
-                const hr = this.indexToHours(index)
-                const min = this.indexToMinutes(index)
-                const currentDate = this.selectedCheckout || this.checkout
-                currentDate.setHours(hr, min)
-                this.dateSelected(currentDate)
-            },
-
             dateSelected(date) {
                 if (this.picker === 'checkin') this.selectedCheckin = date
                 else if (this.picker === 'checkout') this.selectedCheckout = date
