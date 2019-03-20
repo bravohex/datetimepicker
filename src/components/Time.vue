@@ -1,27 +1,48 @@
 <template>
-    <div>
-        <b-form-select
-            v-model="checkinIndex"
-            :options="checkinOptions"
-            @change="$emit('updateCheckin', checkinIndex)"
-        />
-        <b-form-select
-            v-model="checkoutIndex"
-            :options="checkoutOptions"
-            @change="$emit('updateCheckout', checkoutIndex)"
-        />
+    <div class="row pl-4">
+        <div class="col-4">
+            <b-form-group
+                label="Check In"
+                label-for="checkinTimeInput"
+            >
+                <b-form-select
+                    id="checkinTimeInput"
+                    :disabled="picker === 'checkout'"
+                    v-model="checkinIndex"
+                    :options="checkinOptions"
+                    @change="$emit('updateCheckin', checkinIndex)"
+                />
+            </b-form-group>
+        </div>
+        <div class="col-4">
+            <b-form-group
+                label="Check Out"
+                label-for="checkoutTimeInput"
+            >
+                <b-form-select
+                    id="checkoutTimeInput"
+                    :disabled="picker === 'checkin'"
+                    v-model="checkoutIndex"
+                    :options="checkoutOptions"
+                    @change="$emit('updateCheckout', checkoutIndex)"
+                />
+            </b-form-group>
+
+        </div>
     </div>
 </template>
 
 <script src='./timeOptions.js'></script>
 <script>
     import BFormSelect from 'bootstrap-vue/es/components/form-select/form-select'
+    import BFormGroup from 'bootstrap-vue/es/components/form-group/form-group'
     import { defaultTimeOptions } from './timeOptions'
 
     export default {
         name: 'Time',
         components: {
             BFormSelect,
+            BFormGroup,
         },
         props: {
             checkin: {
