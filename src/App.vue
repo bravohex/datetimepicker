@@ -36,7 +36,7 @@
     import TRVLPicker from '@/TRVLPicker'
 
     const today = new Date()
-    today.setHours(0, 0, 0, 0)
+    today.setHours(8, 30, 0, 0)
 
     const dayAfterTomorrow = new Date(today)
     dayAfterTomorrow.setDate(today.getDate() + 2)
