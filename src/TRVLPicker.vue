@@ -97,8 +97,8 @@
                             :checkin="selectedCheckin || checkin"
                             :checkout="selectedCheckout || checkout"
                             :picker="picker"
-                            @updateCheckin="timeSelected"
-                            @updateCheckout="timeSelected"
+                            @updateCheckin="dateSelected"
+                            @updateCheckout="dateSelected"
                         />
                     </div>
 
@@ -290,6 +290,7 @@
             },
 
             timeSelected(date){
+
                 if (this.picker === 'checkin'){
                     this.selectedCheckin = this.selectedCheckin ? this.selectedCheckin : this.checkin
                     this.selectedCheckin.setHours(date.getHours())
