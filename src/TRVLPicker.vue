@@ -250,7 +250,7 @@
             document.body.appendChild(popperScript)
             //
             const jqueryScript = document.createElement('script')
-            jqueryScript.setAttribute('src', 'http://code.jquery.com/jquery-3.3.1.js')
+            jqueryScript.setAttribute('src', 'https://code.jquery.com/jquery-3.3.1.js')
             jqueryScript.setAttribute('integrity', 'sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=')
             jqueryScript.setAttribute('crossorigin', 'anonymous')
             document.body.appendChild(jqueryScript)
