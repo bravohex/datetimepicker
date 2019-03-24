@@ -291,22 +291,12 @@
 
             dateSelected(date) {
                 if (this.picker === 'checkin') {
-                    const time = this.selectedCheckin
-                        ? {
-                            hours: this.selectedCheckin.getHours(),
-                            min: this.selectedCheckin.getMinutes(),
-                        }
-                        : {
-                            hours: this.checkin.getHours(),
-                            min: this.checkin.getMinutes(),
-                        }
-
                     this.selectedCheckin = new Date(
                         date.getFullYear(),
                         date.getMonth(),
                         date.getDate(),
-                        time.hours,
-                        time.min,
+                        date.getHours(),
+                        date.getMinutes(),
                     )
                 } else if (this.picker === 'checkout') {
                     this.selectedCheckout = this.selectedCheckout
