@@ -6,7 +6,7 @@
                 (duration.days + (duration.days === 1 ? ' day' : ' days') ) : '' }}
             {{ duration.days > 0 && duration.hours > 0 ? ', ' : '' }}
             {{ duration.hours > 0 ?
-                (duration.hours + (duration.hours === 1 ? 'hour': 'hours') ) : '' }}
+                (duration.hours + (duration.hours === 1 ? ' hour': ' hours') ) : '' }}
         </span>
     </p>
 </template>
