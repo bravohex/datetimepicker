@@ -299,23 +299,12 @@
                         date.getMinutes(),
                     )
                 } else if (this.picker === 'checkout') {
-                    this.selectedCheckout = this.selectedCheckout
-                        ? this.selectedCheckout : this.checkout
-                    const time = this.selectedCheckout ? {
-                        hours: this.selectedCheckout.getHours(),
-                        min: this.selectedCheckout.getMinutes(),
-                    }
-                        : {
-                            hours: this.checkout.getHours(),
-                            min: this.checkout.getMinutes(),
-                        }
-
                     this.selectedCheckout = new Date(
                         date.getFullYear(),
                         date.getMonth(),
                         date.getDate(),
-                        time.hours,
-                        time.min,
+                        date.getHours(),
+                        date.getMinutes(),
                     )
                 }
 
