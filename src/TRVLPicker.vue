@@ -289,16 +289,58 @@
                 this.picker = null
             },
 
+            timeSelected(date) {
+                if (this.picker === 'checkin') {
+                    this.selectedCheckin = this.selectedCheckin
+                        ? this.selectedCheckin : this.checkin
+                    this.selectedCheckin.setHours(date.getHours())
+                    this.selectedCheckin.setMinutes(date.getMinutes())
+                } else if (this.picker === 'checkout') {
+                    this.selectedCheckout = this.selectedCheckout
+                        ? this.selectedCheckout : this.checkout
+                    this.selectedCheckout.setHours(date.getHours())
+                    this.selectedCheckout.setMinutes(date.getMinutes())
+                }
+            },
+
             dateSelected(date) {
                 if (this.picker === 'checkin') {
-                    console.log('updating checkin')
-                    console.log(date)
-                    this.selectedCheckin = date
-                }
-                else if (this.picker === 'checkout') {
-                    console.log('updating checkout')
-                    console.log(date)
-                    this.selectedCheckout = date
+                    const time = this.selectedCheckin
+                        ? {
+                            hours: this.selectedCheckin.getHours(),
+                            min: this.selectedCheckin.getMinutes(),
+                        }
+                        : {
+                            hours: this.checkin.getHours(),
+                            min: this.checkin.getMinutes(),
+                        }
+
+                    this.selectedCheckin = new Date(
+                        date.getFullYear(),
+                        date.getMonth(),
+                        date.getDate(),
+                        time.hours,
+                        time.min,
+                    )
+                } else if (this.picker === 'checkout') {
+                    this.selectedCheckout = this.selectedCheckout
+                        ? this.selectedCheckout : this.checkout
+                    const time = this.selectedCheckout ? {
+                        hours: this.selectedCheckout.getHours(),
+                        min: this.selectedCheckout.getMinutes(),
+                    }
+                        : {
+                            hours: this.checkout.getHours(),
+                            min: this.checkout.getMinutes(),
+                        }
+
+                    this.selectedCheckout = new Date(
+                        date.getFullYear(),
+                        date.getMonth(),
+                        date.getDate(),
+                        time.hours,
+                        time.min,
+                    )
                 }
 
                 const checkout = this.selectedCheckout || this.checkout

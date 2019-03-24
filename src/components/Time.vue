@@ -7,8 +7,8 @@
             >
                 <b-form-select
                     id="checkinTimeInput"
-                    :disabled="picker === 'checkout'"
                     v-model="checkinIndex"
+                    :disabled="picker === 'checkout'"
                     :options="checkinOptions"
                     @change="$emit('updateCheckin', newCheckin)"
                 />
@@ -21,13 +21,12 @@
             >
                 <b-form-select
                     id="checkoutTimeInput"
-                    :disabled="picker === 'checkin'"
                     v-model="checkoutIndex"
+                    :disabled="picker === 'checkin'"
                     :options="checkoutOptions"
                     @change="$emit('updateCheckout', newCheckout)"
                 />
             </b-form-group>
-
         </div>
     </div>
 </template>
@@ -90,8 +89,9 @@
               return (index % 4) * 15
           },
 
-          hoursToIndex(hours){
-            return (hours * 4)
+          timeToIndex(hours){
+              // hours: a float in units of hours
+              return (hours * 4)
           },
         },
         mounted() {
@@ -103,8 +103,8 @@
           var checkoutHours = Math.round((this.checkout.getHours() +
                 (this.checkout.getMinutes() / 60) ) * 4 ) / 4
 
-          this.checkinIndex = this.hoursToIndex(checkinHours)
-          this.checkoutIndex = this.hoursToIndex(checkoutHours)
+          this.checkinIndex = this.timeToIndex(checkinHours)
+          this.checkoutIndex = this.timeToIndex(checkoutHours)
 
         },
     }
