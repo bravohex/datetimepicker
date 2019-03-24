@@ -289,20 +289,6 @@
                 this.picker = null
             },
 
-            timeSelected(date) {
-                if (this.picker === 'checkin') {
-                    this.selectedCheckin = this.selectedCheckin
-                        ? this.selectedCheckin : this.checkin
-                    this.selectedCheckin.setHours(date.getHours())
-                    this.selectedCheckin.setMinutes(date.getMinutes())
-                } else if (this.picker === 'checkout') {
-                    this.selectedCheckout = this.selectedCheckout
-                        ? this.selectedCheckout : this.checkout
-                    this.selectedCheckout.setHours(date.getHours())
-                    this.selectedCheckout.setMinutes(date.getMinutes())
-                }
-            },
-
             dateSelected(date) {
                 if (this.picker === 'checkin') {
                     const time = this.selectedCheckin

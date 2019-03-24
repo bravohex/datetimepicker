@@ -2,7 +2,6 @@
     <div>
         <p class="trvl-picker-summary">
             {{ format(checkin) }} - {{ format(checkout) }}
-
         </p>
         <span class="trvl-picker-summary-duration">
             {{ duration.days > 0 ?
