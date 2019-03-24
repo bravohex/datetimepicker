@@ -66,11 +66,13 @@
         },
         computed: {
             newCheckin() {
-                return new Date(this.checkin.setHours(this.indexToHours(this.checkinIndex),
+                let initDate = new Date(this.checkin)
+                return new Date(initDate.setHours(this.indexToHours(this.checkinIndex),
                     this.indexToMinutes(this.checkinIndex)))
             },
             newCheckout() {
-                return new Date(this.checkout.setHours(this.indexToHours(this.checkoutIndex),
+                let initDate = new Date(this.checkout)
+                return new Date(initDate.setHours(this.indexToHours(this.checkoutIndex),
                     this.indexToMinutes(this.checkoutIndex)))
             },
             checkinOptions() {

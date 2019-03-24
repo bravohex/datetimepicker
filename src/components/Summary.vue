@@ -1,14 +1,16 @@
 <template>
-    <p class="trvl-picker-summary">
-        {{ format(checkin) }} - {{ format(checkout) }}
+    <div>
+        <p class="trvl-picker-summary">
+            {{ format(checkin) }} - {{ format(checkout) }}
+        </p>
         <span class="trvl-picker-summary-duration">
             {{ duration.days > 0 ?
                 (duration.days + (duration.days === 1 ? ' day' : ' days') ) : '' }}
             {{ duration.days > 0 && duration.hours > 0 ? ', ' : '' }}
             {{ duration.hours > 0 ?
-                (duration.hours + (duration.hours === 1 ? 'hour': 'hours') ) : '' }}
+                (duration.hours + (duration.hours === 1 ? ' hour': ' hours') ) : '' }}
         </span>
-    </p>
+    </div>
 </template>
 
 <script>
@@ -65,7 +67,7 @@
             font-weight: normal;
         }
         &-duration {
-          margin-left: 8px;
+          margin-left: 0px;
           color: $gray;
           font-size: 13px;
           font-weight: normal;
