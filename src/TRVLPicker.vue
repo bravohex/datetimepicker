@@ -142,6 +142,9 @@
     const oneYearFromNow = new Date(today)
     oneYearFromNow.setYear(today.getFullYear() + 1)
 
+    const threeMonthsFromNow = new Date(today)
+    threeMonthsFromNow.setMonth(today.getMonth() + 3)
+
     const oneMonthFromNow = new Date(today)
     oneMonthFromNow.setMonth(today.getMonth() + 1)
 
@@ -185,7 +188,7 @@
             maxDate: {
                 required: false,
                 type: Date,
-                default: () => new Date(oneMonthFromNow),
+                default: () => new Date(threeMonthsFromNow),
             },
             maxStay: {
                 required: false,
