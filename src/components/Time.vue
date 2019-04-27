@@ -1,6 +1,6 @@
 <template>
-    <div class="row pl-4">
-        <div class="col-4">
+    <div class="row px-4">
+        <div class="col-6">
             <b-form-group
                 label="Check In"
                 label-for="checkinTimeInput"
@@ -13,7 +13,7 @@
                 />
             </b-form-group>
         </div>
-        <div class="col-4">
+        <div class="col-6">
             <b-form-group
                 label="Check Out"
                 label-for="checkoutTimeInput"

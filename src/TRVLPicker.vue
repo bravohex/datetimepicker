@@ -92,7 +92,10 @@
                             @select="dateSelected"
                         />
                     </div>
-                    <div class="mp-picker-time">
+                    <div
+                        v-if="!vertical"
+                        class="mp-picker-time"
+                    >
                         <Time
                             :checkin="selectedCheckin || checkin"
                             :checkout="selectedCheckout || checkout"
@@ -103,6 +106,18 @@
                     </div>
 
                     <footer class="trvl-picker-footer">
+                        <div
+                            v-if="vertical"
+                            class="mp-picker-time"
+                        >
+                            <Time
+                                :checkin="selectedCheckin || checkin"
+                                :checkout="selectedCheckout || checkout"
+                                :picker="picker"
+                                @updateCheckin="dateSelected"
+                                @updateCheckout="dateSelected"
+                            />
+                        </div>
                         <Summary
                             :checkin="selectedCheckin || checkin"
                             :checkout="selectedCheckout || checkout"
