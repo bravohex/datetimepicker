@@ -49,17 +49,9 @@
                 type: String,
             },
         },
-        methods: {
-            toZeroTime(date) {
-                // convert input date to the "top of the day"
-                // e.g. same date with hours = 0, min = 0, sec = 0, ms = 0
-                // return as date object
-                return new Date(date.setHours(0,0,0,0))
-            }
-        },
         computed: {
             day() {
-                const day = this.date.toLocaleString('en-us', {
+                const day = this.toZeroTime(this.date).toLocaleString('en-us', {
                     day: 'numeric',
                 })
 
@@ -67,28 +59,44 @@
             },
 
             isCheckin() {
-                // use dummy checkin time to reset time to 0 as this.date uses t=0
-                return this.date.getTime() === this.toZeroTime(this.checkin).getTime()
+                // use dummy checkin time to reset time to 0 as this.toZeroTime(this.date) uses t=0
+                return this.toZeroTime(this.date).getTime()
+                    === this.toZeroTime(this.checkin).getTime()
             },
 
             isCheckout() {
-                return this.date.getTime() === this.checkout.getTime()
+                return this.toZeroTime(this.date).getTime()
+                    === this.toZeroTime(this.checkout).getTime()
             },
 
             isDisabled() {
-                if (this.date < this.minDate || this.date > this.maxDate) return true
+                if (this.toZeroTime(this.date) < this.minDate
+                    || this.toZeroTime(this.date) > this.maxDate) return true
 
                 return this.picker === 'checkout'
-                    ? this.date < this.toZeroTime(this.checkin) || this.date > this.maxCheckout
+                    ? this.toZeroTime(this.date) < this.toZeroTime(this.checkin)
+                        || this.toZeroTime(this.date) > this.maxCheckout
                     : false
             },
 
             isInRange() {
-                return this.date > this.toZeroTime(this.checkin) && this.date < this.toZeroTime(this.checkout)
+                return (this.toZeroTime(this.date) > this.toZeroTime(this.checkin))
+                    && this.toZeroTime(this.date) < this.toZeroTime(this.checkout)
             },
 
             isToday() {
-                return this.date.getTime() === today.getTime()
+                return this.toZeroTime(this.date).getTime() === today.getTime()
+            },
+        },
+        methods: {
+            toZeroTime(date) {
+                // convert input date to the "top of the day"
+                // e.g. same date with hours = 0, min = 0, sec = 0, ms = 0
+                // return as date object
+                // return date
+                const dummy = new Date(date)
+                dummy.setHours(0, 0, 0, 0)
+                return new Date(dummy)
             },
         },
     }

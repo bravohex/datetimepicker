@@ -41,12 +41,12 @@
     "not ie <= 8"
   ],
   "bugs": {
-    "url": "https://github.com/TRVL/picker/issues"
+    "url": "https://github.com/mochapark/datetimepicker/issues"
   },
   "files": [
     "dist"
   ],
-  "homepage": "https://github.com/TRVL/picker#readme",
+  "homepage": "https://github.com/mochapark/datetimepicker#readme",
   "keywords": [
     "vue",
     "datepicker"
@@ -61,6 +61,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TRVL/picker"
+    "url": "https://github.com/mochapark/datetimepicker"
   }
 }

@@ -291,14 +291,21 @@
 
             dateSelected(date) {
                 if (this.picker === 'checkin') {
-                    console.log('updating checkin')
-                    console.log(date)
-                    this.selectedCheckin = date
-                }
-                else if (this.picker === 'checkout') {
-                    console.log('updating checkout')
-                    console.log(date)
-                    this.selectedCheckout = date
+                    this.selectedCheckin = new Date(
+                        date.getFullYear(),
+                        date.getMonth(),
+                        date.getDate(),
+                        date.getHours(),
+                        date.getMinutes(),
+                    )
+                } else if (this.picker === 'checkout') {
+                    this.selectedCheckout = new Date(
+                        date.getFullYear(),
+                        date.getMonth(),
+                        date.getDate(),
+                        date.getHours(),
+                        date.getMinutes(),
+                    )
                 }
 
                 const checkout = this.selectedCheckout || this.checkout
