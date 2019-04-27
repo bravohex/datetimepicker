@@ -7,7 +7,6 @@
             >
                 <b-form-select
                     id="checkinTimeInput"
-                    :disabled="picker === 'checkout'"
                     v-model="checkinIndex"
                     :options="checkinOptions"
                     @change="$emit('updateCheckin', newCheckin)"
@@ -21,7 +20,6 @@
             >
                 <b-form-select
                     id="checkoutTimeInput"
-                    :disabled="picker === 'checkin'"
                     v-model="checkoutIndex"
                     :options="checkoutOptions"
                     @change="$emit('updateCheckout', newCheckout)"
