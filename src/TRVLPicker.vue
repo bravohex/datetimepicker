@@ -465,7 +465,7 @@
         box-sizing: border-box;
         color: $gray-dark;
         font-family: proxima-nova;
-        z-index: 1000;
+        z-index: 1100;
 
         &.single,
         &.double,
