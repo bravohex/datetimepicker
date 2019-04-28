@@ -370,10 +370,15 @@
                 const dateIsAfterCheckout = date > checkout
 
                 if (checkoutIsAfterMaxCheckout || dateIsAfterCheckout) {
-                    const tomorrow = new Date(date)
-                    tomorrow.setDate(date.getDate() + 1)
-
-                    this.selectedCheckout = tomorrow
+                    this.selectedCheckout = new Date(
+                        date.getFullYear(),
+                        date.getMonth(),
+                        date.getDate() + 1,
+                        this.selectedCheckout ? this.selectedCheckout.getHours()
+                        : this.checkout.getHours(),
+                        this.selectedCheckout ? this.selectedCheckout.getMinutes()
+                        : this.checkout.getMinutes(),
+                    )
                 }
 
                 this.picker = 'checkout'
