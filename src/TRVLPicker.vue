@@ -258,7 +258,7 @@
             // import theme files:
             const bootstrapLink = document.createElement('link')
             bootstrapLink.setAttribute('rel', 'stylesheet')
-            bootstrapLink.setAttribute('href', 'https://cdn.jsdelivr.net/gh/mochapark/theme@v0.0.3/css/theme.min.css')
+            bootstrapLink.setAttribute('href', 'https://cdn.jsdelivr.net/gh/mochapark/theme@v0.0.4/css/theme.min.css')
             document.body.appendChild(bootstrapLink)
             //
             const popperScript = document.createElement('script')
@@ -274,7 +274,7 @@
             document.body.appendChild(jqueryScript)
             //
             const themeScript = document.createElement('script')
-            themeScript.setAttribute('src', 'https://cdn.jsdelivr.net/gh/mochapark/theme@v0.0.3/js/theme.min.js')
+            themeScript.setAttribute('src', 'https://cdn.jsdelivr.net/gh/mochapark/theme@v0.0.4/js/theme.min.js')
             document.body.appendChild(themeScript)
 
             // setup
