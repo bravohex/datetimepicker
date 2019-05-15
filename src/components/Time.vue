@@ -112,6 +112,6 @@
 
 <style lang="scss">
     .mp-picker-time {
-
+      padding-right:50px;
     }
 </style>
