@@ -94,7 +94,6 @@
                     </div>
                     <div
                         v-if="!vertical"
-                        class="mp-picker-time"
                     >
                         <Time
                             :checkin="selectedCheckin || checkin"
@@ -108,7 +107,6 @@
                     <footer class="trvl-picker-footer">
                         <div
                             v-if="vertical"
-                            class="mp-picker-time"
                         >
                             <Time
                                 :checkin="selectedCheckin || checkin"
@@ -255,28 +253,6 @@
             picker: 'toggleEventListeners',
         },
         mounted() {
-            // import theme files:
-            const bootstrapLink = document.createElement('link')
-            bootstrapLink.setAttribute('rel', 'stylesheet')
-            bootstrapLink.setAttribute('href', 'https://cdn.jsdelivr.net/gh/mochapark/theme@v0.0.4/css/theme.min.css')
-            document.body.appendChild(bootstrapLink)
-            //
-            const popperScript = document.createElement('script')
-            popperScript.setAttribute('src', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js')
-            popperScript.setAttribute('integrity', 'sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q')
-            popperScript.setAttribute('crossorigin', 'anonymous')
-            document.body.appendChild(popperScript)
-            //
-            const jqueryScript = document.createElement('script')
-            jqueryScript.setAttribute('src', 'https://code.jquery.com/jquery-3.3.1.js')
-            jqueryScript.setAttribute('integrity', 'sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=')
-            jqueryScript.setAttribute('crossorigin', 'anonymous')
-            document.body.appendChild(jqueryScript)
-            //
-            const themeScript = document.createElement('script')
-            themeScript.setAttribute('src', 'https://cdn.jsdelivr.net/gh/mochapark/theme@v0.0.4/js/theme.min.js')
-            document.body.appendChild(themeScript)
-
             // setup
             this.setMonths()
 
