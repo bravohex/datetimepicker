@@ -1,5 +1,5 @@
 <template>
-    <div class="row px-4">
+    <div class="row px-lg-4">
         <div class="col-6">
             <b-form-group
                 label="Check In"
@@ -111,7 +111,10 @@
 </script>
 
 <style lang="scss">
-    .mp-picker-time {
-      padding-right:50px;
-    }
+
+    // .nopadding {
+    //   padding: 0 !important;
+    //   margin: 0 !important;
+    // }
+
 </style>
