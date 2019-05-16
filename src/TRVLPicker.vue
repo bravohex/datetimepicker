@@ -124,10 +124,10 @@
                         />
 
                         <aside class="trvl-picker-footer-buttons">
-                            <ClearButton
+                            <!-- <ClearButton
                                 :disabled="!selectedCheckin && !selectedCheckout"
                                 @click="clearSelection"
-                            />
+                            /> -->
                             <ApplyButton @click="applySelection" />
                         </aside>
                     </footer>
@@ -322,6 +322,8 @@
                     hours,
                     minutes,
                 )
+
+                this.emitDate()
             },
 
             checkoutTimeSelected(date) {
@@ -339,6 +341,8 @@
                     hours,
                     minutes,
                 )
+
+                this.emitDate()
             },
 
             dateSelected(date) {
@@ -382,6 +386,16 @@
                 }
 
                 this.picker = 'checkout'
+
+                this.emitDate()
+
+            },
+
+            emitDate(){
+                this.$emit('update:checkin', this.selectedCheckin || this.checkin)
+                this.$emit('update:checkout', this.selectedCheckout || this.checkout)
+
+                return
             },
 
             format(date) {
