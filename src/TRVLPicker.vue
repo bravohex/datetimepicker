@@ -124,10 +124,10 @@
                         />
 
                         <aside class="trvl-picker-footer-buttons">
-                            <ClearButton
+                            <!-- <ClearButton
                                 :disabled="!selectedCheckin && !selectedCheckout"
                                 @click="clearSelection"
-                            />
+                            /> -->
                             <ApplyButton @click="applySelection" />
                         </aside>
                     </footer>
