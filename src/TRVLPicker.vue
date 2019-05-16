@@ -284,10 +284,10 @@
         },
         methods: {
             applySelection() {
-                this.$emit('update:checkin', this.selectedCheckin || this.checkin)
-                this.$emit('update:checkout', this.selectedCheckout || this.checkout)
+                this.$emit('update:checkin', this.checkin)
+                this.$emit('update:checkout', this.checkout)
 
-                this.initialMonth = (this.selectedCheckin || this.checkin).getMonth()
+                this.initialMonth = this.checkin.getMonth()
 
                 this.clearSelection()
                 this.close()
@@ -343,41 +343,35 @@
 
             dateSelected(date) {
                 if (this.picker === 'checkin') {
-                    this.selectedCheckin = new Date(
+                    this.checkin = new Date(
                         date.getFullYear(),
                         date.getMonth(),
                         date.getDate(),
-                        this.selectedCheckin ? this.selectedCheckin.getHours()
-                        : this.checkin.getHours(),
-                        this.selectedCheckin ? this.selectedCheckin.getMinutes()
-                        : this.checkin.getMinutes(),
+                        this.checkin.getHours(),
+                        this.checkin.getMinutes(),
                     )
                 } else if (this.picker === 'checkout') {
                     this.selectedCheckout = new Date(
                         date.getFullYear(),
                         date.getMonth(),
                         date.getDate(),
-                        this.selectedCheckout ? this.selectedCheckout.getHours()
-                        : this.checkout.getHours(),
-                        this.selectedCheckout ? this.selectedCheckout.getMinutes()
-                        : this.checkout.getMinutes(),
+                        this.checkout.getHours(),
+                        this.checkout.getMinutes(),
                     )
                 }
 
-                const checkout = this.selectedCheckout || this.checkout
+                const { checkout } = { checkout: this.checkout }
 
                 const checkoutIsAfterMaxCheckout = checkout > this.maxCheckout
                 const dateIsAfterCheckout = date > checkout
 
                 if (checkoutIsAfterMaxCheckout || dateIsAfterCheckout) {
-                    this.selectedCheckout = new Date(
+                    this.checkout = new Date(
                         date.getFullYear(),
                         date.getMonth(),
                         date.getDate() + 1,
-                        this.selectedCheckout ? this.selectedCheckout.getHours()
-                        : this.checkout.getHours(),
-                        this.selectedCheckout ? this.selectedCheckout.getMinutes()
-                        : this.checkout.getMinutes(),
+                        this.checkout.getHours(),
+                        this.checkout.getMinutes(),
                     )
                 }
 
