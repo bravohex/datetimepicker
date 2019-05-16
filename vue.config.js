@@ -3,10 +3,7 @@ module.exports = {
         extract: false, // build the library with css inline
         loaderOptions: {
             sass: {
-                data: `
-                  @import "@/assets/_variables.scss";
-                  @import "@/assets/_mppicker.scss";
-                `
+                data: '@import "@/assets/_variables.scss";',
             },
         },
     },
