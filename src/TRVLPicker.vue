@@ -124,6 +124,7 @@
                         />
 
                         <aside class="trvl-picker-footer-buttons">
+                            <div />
                             <!-- <ClearButton
                                 :disabled="!selectedCheckin && !selectedCheckout"
                                 @click="clearSelection"
