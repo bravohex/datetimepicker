@@ -1,6 +1,6 @@
 {
   "name": "@mochapark/datetimepicker",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A short-term datetime picker for Vue.js",
   "author": "Mocha Park <help@mochapark.com>",
   "scripts": {
