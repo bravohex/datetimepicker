@@ -301,7 +301,7 @@
             },
 
             close() {
-                this.$emit('close')
+                this.$emit('close', this.vertical)
 
                 this.picker = null
             },
@@ -437,7 +437,7 @@
                     return
                 }
 
-                this.$emit('open')
+                this.$emit('open', this.vertical)
 
                 this.picker = picker
             },
