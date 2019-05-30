@@ -1,7 +1,7 @@
 <template functional>
     <div class="trvl-picker-week">
         <span
-            v-for="day in ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su']"
+            v-for="day in ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']"
             :key="day"
             class="trvl-picker-week-day"
         >
