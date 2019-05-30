@@ -11,7 +11,7 @@
             <slot
                 :name="type"
                 :is-active="picker === type"
-                :value="format(type === 'checkin' ? checkin : checkout)"
+                :value="' ' + format(type === 'checkin' ? checkin : checkout)"
             >
                 <input
                     :class="{ active: picker === type }"
@@ -20,7 +20,6 @@
                 >
             </slot>
         </button>
-
         <Portal
             :disabled="!hasPortal || !vertical"
             :target-el="`#${portal}`"
@@ -396,10 +395,12 @@
 
             format(date) {
                 // return date.toLocaleDateString()
-                return date.toLocaleDateString('en-us', {
+                const dateString = date.toLocaleDateString('en-us', {
                     hour: '2-digit',
                     minute: '2-digit',
                 })
+
+                return dateString
             },
             goToNextMonth() {
                 this.currentMonth += 1

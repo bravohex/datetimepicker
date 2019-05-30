@@ -19,13 +19,20 @@
                     >
                         Check {{ type === 'checkin' ? 'in' : 'out' }}
                     </label>
-                    <input
-                        :id="type"
-                        class="demo-input"
-                        type="text"
-                        :value="value"
-                        readonly
-                    >
+                    <div>
+                        <font-awesome-icon
+                            class="cal-icon"
+                            :icon="['far', 'calendar-alt']"
+                            size="sm"
+                        />
+                        <input
+                            :id="type"
+                            class="demo-input"
+                            type="text"
+                            :value="value"
+                            readonly
+                        >
+                    </div>
                 </div>
             </template>
         </TRVLPicker>
@@ -74,6 +81,10 @@
 
         &.active {
             border-color: $blue;
+        }
+
+        .cal-icon{
+          color: $blue;
         }
 
         &-label {
