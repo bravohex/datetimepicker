@@ -99,7 +99,7 @@
             },
 
             spacers() {
-                const before = Math.max(this.startOfMonth.getDay() - 1, 0)
+                const before = Math.max(this.startOfMonth.getDay(), 0)
                 const after = 7 * 6 - this.dates.length - before
 
                 return {
